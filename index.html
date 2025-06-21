@@ -12,6 +12,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
         .chart-container {
             position: relative;
@@ -19,12 +20,17 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            height: 350px;
+            height: 300px;
             max-height: 400px;
         }
         @media (min-width: 768px) {
             .chart-container {
                 height: 400px;
+            }
+        }
+        @media (max-width: 640px) {
+            .chart-container {
+                height: 250px;
             }
         }
         .text-shadow {
@@ -37,39 +43,102 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
+        .mobile-optimized {
+            padding: 1rem;
+        }
+        @media (min-width: 768px) {
+            .mobile-optimized {
+                padding: 2rem;
+            }
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #003459 0%, #007EA7 50%, #00A8E8 100%);
+        }
+        .floating-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .mobile-text {
+            font-size: 1.125rem;
+            line-height: 1.75;
+        }
+        @media (min-width: 768px) {
+            .mobile-text {
+                font-size: 1.25rem;
+            }
+        }
+        .mobile-heading {
+            font-size: 2rem;
+            line-height: 1.2;
+        }
+        @media (min-width: 768px) {
+            .mobile-heading {
+                font-size: 3rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .mobile-heading {
+                font-size: 4rem;
+            }
+        }
+        .mobile-spacing {
+            margin-bottom: 2rem;
+        }
+        @media (min-width: 768px) {
+            .mobile-spacing {
+                margin-bottom: 3rem;
+            }
+        }
+        .mobile-grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        @media (min-width: 640px) {
+            .mobile-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .mobile-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-[#003459] text-white">
   
 
-    <div class="container mx-auto p-4 md:p-8">
+    <div class="container mx-auto mobile-optimized">
 
-        <header class="text-center py-12 mb-10">
-            <h1 class="text-4xl md:text-6xl font-black text-white text-shadow leading-tight">KAYMO</h1>
-            <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-white">A data-driven look into the deforestation in Somalia </p>
+        <header class="text-center py-8 md:py-16 mb-8 md:mb-16 hero-gradient rounded-3xl mobile-spacing">
+            <h1 class="mobile-heading font-black text-white text-shadow leading-tight mb-4">KAYMO</h1>
+            <p class="mobile-text max-w-3xl mx-auto text-white px-4">A data-driven look into the deforestation in Somalia</p>
         </header>
 
-        <main class="space-y-20">
+        <main class="space-y-12 md:space-y-20">
 
-            <section id="decline" class="bg-[#007EA7] rounded-xl shadow-2xl p-6 md:p-10 card">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <section id="decline" class="bg-[#007EA7] rounded-2xl shadow-2xl p-4 md:p-8 lg:p-10 card floating-card">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-center">
                     <div class="text-center lg:text-left">
-                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">A Drastic Decline in Forest Cover</h2>
-                        <p class="text-gray-200 mb-6 text-lg">
+                        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 md:mb-6">A Drastic Decline in Forest Cover</h2>
+                        <p class="mobile-text text-gray-200 mb-6">
                             In just a few decades, Somalia's landscape has been irrevocably altered. What was once substantial forest cover, supporting ecosystems and livelihoods, has been decimated, leaving the nation vulnerable and exposed.
                         </p>
-                        <div class="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-8">
+                        <div class="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 md:space-x-8">
                             <div class="text-center">
-                                <p class="text-5xl md:text-6xl font-black text-[#FFD166]">62%</p>
-                                <p class="text-sm text-gray-300">Forest Cover<br>in the 1980s (~39M Hectares)</p>
+                                <p class="text-4xl md:text-5xl lg:text-6xl font-black text-[#FFD166]">62%</p>
+                                <p class="text-sm md:text-base text-gray-300">Forest Cover<br>in the 1980s (~39M Hectares)</p>
                             </div>
                             <div class="text-center">
-                                <p class="text-5xl md:text-6xl font-black text-[#FF6B6B]">10%</p>
-                                <p class="text-sm text-gray-300">Forest Cover<br>by 2014 (~6M Hectares)</p>
+                                <p class="text-4xl md:text-5xl lg:text-6xl font-black text-[#FF6B6B]">10%</p>
+                                <p class="text-sm md:text-base text-gray-300">Forest Cover<br>by 2014 (~6M Hectares)</p>
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div class="mt-6 lg:mt-0">
                          <div class="chart-container">
                             <canvas id="forestCoverChart"></canvas>
                         </div>
@@ -78,51 +147,51 @@
             </section>
 
             <section id="impact" class="text-center">
-                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">The Unseen Cost of Deforestation</h2>
-                 <p class="max-w-2xl mx-auto text-gray-300 mb-10 text-lg">The loss is not just in area, but in the millions of trees that form the backbone of the ecosystem and the millions of tons of carbon released into our atmosphere. This crisis has both long-term and immediate consequences.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-[#007EA7] rounded-xl shadow-2xl p-8 flex flex-col justify-center items-center card">
-                         <span class="text-6xl mb-4">🌳</span>
-                        <p class="text-4xl md:text-5xl font-black text-[#FFD166]">205 Million</p>
-                        <p class="mt-2 text-lg text-gray-200">Trees Felled (2000-2017)</p>
+                 <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">The Unseen Cost of Deforestation</h2>
+                 <p class="max-w-2xl mx-auto mobile-text text-gray-300 mb-8 md:mb-10 px-4">The loss is not just in area, but in the millions of trees that form the backbone of the ecosystem and the millions of tons of carbon released into our atmosphere. This crisis has both long-term and immediate consequences.</p>
+                <div class="grid mobile-grid">
+                    <div class="bg-[#007EA7] rounded-2xl shadow-2xl p-6 md:p-8 flex flex-col justify-center items-center card floating-card">
+                         <span class="text-4xl md:text-6xl mb-4">🌳</span>
+                        <p class="text-3xl md:text-4xl lg:text-5xl font-black text-[#FFD166]">205 Million</p>
+                        <p class="mt-2 text-base md:text-lg text-gray-200">Trees Felled (2000-2017)</p>
                         <p class="text-sm text-gray-400 mt-1">A devastating loss for biodiversity and soil stability.</p>
                     </div>
-                     <div class="bg-[#007EA7] rounded-xl shadow-2xl p-8 flex flex-col justify-center items-center card">
-                         <span class="text-6xl mb-4">💨</span>
-                        <p class="text-4xl md:text-5xl font-black text-[#FF6B6B]">1.01 Million Tons</p>
-                        <p class="mt-2 text-lg text-gray-200">CO₂ Emissions (2001-2023)</p>
+                     <div class="bg-[#007EA7] rounded-2xl shadow-2xl p-6 md:p-8 flex flex-col justify-center items-center card floating-card">
+                         <span class="text-4xl md:text-6xl mb-4">💨</span>
+                        <p class="text-3xl md:text-4xl lg:text-5xl font-black text-[#FF6B6B]">1.01 Million Tons</p>
+                        <p class="mt-2 text-base md:text-lg text-gray-200">CO₂ Emissions (2001-2023)</p>
                         <p class="text-sm text-gray-400 mt-1">Directly from tree cover loss, fueling climate change.</p>
                     </div>
-                     <div class="bg-[#007EA7] rounded-xl shadow-2xl p-8 flex flex-col justify-center items-center card">
-                         <span class="text-6xl mb-4">🌍</span>
-                        <p class="text-4xl md:text-5xl font-black text-[#00A8E8]">6%</p>
-                        <p class="mt-2 text-lg text-gray-200">Of Africa's Total<br>Tree Loss</p>
+                     <div class="bg-[#007EA7] rounded-2xl shadow-2xl p-6 md:p-8 flex flex-col justify-center items-center card floating-card">
+                         <span class="text-4xl md:text-6xl mb-4">🌍</span>
+                        <p class="text-3xl md:text-4xl lg:text-5xl font-black text-[#00A8E8]">6%</p>
+                        <p class="mt-2 text-base md:text-lg text-gray-200">Of Africa's Total<br>Tree Loss</p>
                         <p class="text-sm text-gray-400 mt-1">Somalia's outsized contribution to continental tree cover decline.</p>
                     </div>
-                    <div class="bg-[#007EA7] rounded-xl shadow-2xl p-8 flex flex-col justify-center items-center card">
-                         <span class="text-6xl mb-4">⚖️</span>
-                        <p class="text-4xl md:text-5xl font-black text-[#FFD166]">-3.60 kha</p>
-                        <p class="mt-2 text-lg text-gray-200">Net Tree Cover Change (2000-2020)</p>
+                    <div class="bg-[#007EA7] rounded-2xl shadow-2xl p-6 md:p-8 flex flex-col justify-center items-center card floating-card">
+                         <span class="text-4xl md:text-6xl mb-4">⚖️</span>
+                        <p class="text-3xl md:text-4xl lg:text-5xl font-black text-[#FFD166]">-3.60 kha</p>
+                        <p class="mt-2 text-base md:text-lg text-gray-200">Net Tree Cover Change (2000-2020)</p>
                         <p class="text-sm text-gray-400 mt-1">Despite 4.19 kha gain, significant net loss persists.</p>
                     </div>
                 </div>
             </section>
 
-            <section id="comparison" class="bg-white/10 rounded-xl shadow-2xl p-6 md:p-10 card">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                    <div>
+            <section id="comparison" class="bg-white/10 rounded-2xl shadow-2xl p-4 md:p-8 lg:p-10 card floating-card">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-center">
+                    <div class="order-2 lg:order-1">
                         <div class="chart-container">
                             <canvas id="rateComparisonChart"></canvas>
                         </div>
                     </div>
-                    <div class="text-center lg:text-left">
-                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">A Regional Crisis: Somalia's Outlier Rate</h2>
-                        <p class="text-gray-200 text-lg">
+                    <div class="text-center lg:text-left order-1 lg:order-2">
+                        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 md:mb-6">A Regional Crisis: Somalia's Outlier Rate</h2>
+                        <p class="mobile-text text-gray-200 mb-6">
                             Somalia's deforestation rate of <span class="font-bold text-white">1.03%</span> annually is alarmingly out of sync with its neighbors and the rest of the continent. It's nearly double the African average and triple that of neighboring Kenya, highlighting the uniquely severe pressures on Somalia's forests.
                         </p>
-                        <div class="mt-6 bg-[#007EA7] p-6 rounded-lg text-center shadow-md">
-                            <p class="text-4xl md:text-5xl font-black text-[#FF6B6B]">76.8 kha/year</p>
-                            <p class="mt-2 text-lg text-gray-200">Annual Forest Loss (FAO 2015-2020)</p>
+                        <div class="mt-6 bg-[#007EA7] p-4 md:p-6 rounded-2xl text-center shadow-md floating-card">
+                            <p class="text-3xl md:text-4xl lg:text-5xl font-black text-[#FF6B6B]">76.8 kha/year</p>
+                            <p class="mt-2 text-base md:text-lg text-gray-200">Annual Forest Loss (FAO 2015-2020)</p>
                             <p class="text-sm text-gray-400 mt-1">Positioning Somalia as the 23rd highest globally.</p>
                         </div>
                     </div>
@@ -229,8 +298,8 @@
 
             
 
-             <footer class="text-center py-10 border-t border-white/20 mt-20">
-                <p class="text-gray-400 text-sm">&copy; 2024 Kaymo Environmental Data Initiative.</p>
+             <footer class="text-center py-8 md:py-10 border-t border-white/20 mt-12 md:mt-20">
+                <p class="text-gray-400 text-sm md:text-base">&copy; 2024 Kaymo Environmental Data Initiative.</p>
             </footer>
 
         </main>
