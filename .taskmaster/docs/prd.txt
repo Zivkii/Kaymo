@@ -1,0 +1,20 @@
+# Kaymo Interactive Dashboard
+
+## Project Overview
+- Create a web-based dashboard for visualizing deforestation data in Somalia
+- Focus on interactive data visualization and user-friendly interface
+- Target audience: researchers, policy makers, and the general public
+
+## Core Features
+1. Interactive charts showing deforestation trends
+2. Geographic heat maps of affected regions
+3. Responsive design for all device types
+4. Data source attribution and links
+5. Modern UI with smooth transitions
+
+## Technical Requirements
+- HTML5, CSS3, JavaScript
+- Data visualization libraries (D3.js/Chart.js)
+- Responsive framework (Bootstrap/Tailwind)
+- JSON data format for flexibility
+- Cross-browser compatibility 
