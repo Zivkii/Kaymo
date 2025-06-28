@@ -18,10 +18,10 @@ interface MetricCardProps {
 
 const MetricCard = ({ title, value, description, source, color, delay = 0 }: MetricCardProps) => {
   const colorClasses = {
-    warning: 'from-warning-500 to-warning-600',
-    red: 'from-red-500 to-red-600',
-    green: 'from-green-500 to-green-600',
-    blue: 'from-blue-500 to-blue-600',
+    warning: 'from-[#5E6AD2] to-[#7d9df7]',
+    red: 'from-[#8ba3f2] to-[#a5b9f7]',
+    green: 'from-[#7d9df7] to-[#6275e5]',
+    blue: 'from-[#6275e5] to-[#5E6AD2]',
   };
 
   const sourceTypeMap: Record<string, 'un' | 'world-bank' | 'academic' | 'government' | 'ngo'> = {
@@ -41,19 +41,19 @@ const MetricCard = ({ title, value, description, source, color, delay = 0 }: Met
       transition={{ duration: 0.6, delay }}
       className="group"
     >
-      <Card className="p-8 relative overflow-hidden">
+      <Card className="p-8 relative overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/8">
         {/* Background Gradient */}
         <div className={`absolute top-0 left-0 w-full h-2 bg-gradient-to-r ${colorClasses[color]}`} />
         
         {/* Content */}
         <CardContent className="p-0">
-          <h3 className="text-lg font-semibold text-gray-800 mb-3">{title}</h3>
+          <h3 className="text-lg font-semibold text-white mb-3" style={{ fontFamily: 'Inter, sans-serif' }}>{title}</h3>
           
-          <div className="text-4xl font-bold text-gray-900 mb-2">
+          <div className="text-4xl font-bold text-[#5E6AD2] mb-2 font-mono">
             {value}
           </div>
           
-          <p className="text-gray-600 mb-4 leading-relaxed">
+          <p className="text-white/70 mb-4 leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
             {description}
           </p>
           
@@ -73,14 +73,14 @@ const MetricCard = ({ title, value, description, source, color, delay = 0 }: Met
 
 export default function KeyMetrics() {
   return (
-    <Section id="key-metrics" variant="gray" size="lg">
+    <Section id="key-metrics" className="bg-[#101014]" size="lg">
       <SectionContent>
         {/* Section Header */}
         <SectionHeader>
-          <SectionTitle>
+          <SectionTitle className="text-white">
             The Scale of the Crisis
           </SectionTitle>
-          <SectionSubtitle>
+          <SectionSubtitle className="text-white/70">
             Somalia's forests are disappearing at an alarming rate. Here are the key numbers 
             that tell the story of environmental degradation and its far-reaching consequences.
           </SectionSubtitle>
@@ -151,18 +151,24 @@ export default function KeyMetrics() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center"
         >
-          <p className="text-lg text-gray-600 mb-6">
+          <p className="text-lg text-white/70 mb-6" style={{ fontFamily: 'Inter, sans-serif' }}>
             These numbers represent more than statistics—they tell the story of a nation's environmental heritage at risk.
           </p>
-          <Button 
-            size="lg"
+          <motion.button
+            className="flex items-center gap-2 px-6 py-3 rounded-full font-medium bg-[#5E6AD2] hover:bg-[#7d9df7] transition-colors text-white text-base shadow-lg border border-white/10 mx-auto"
+            style={{ fontFamily: 'Inter, sans-serif' }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => {
               const nextSection = document.getElementById('causes');
               nextSection?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            Explore the Causes
-          </Button>
+            <span>Explore the Causes</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </motion.button>
         </motion.div>
       </SectionContent>
     </Section>
