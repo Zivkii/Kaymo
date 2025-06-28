@@ -1,11 +1,13 @@
 {
 	"mcpServers": {
-		"task-master-ai": {
+		"taskmaster-ai": {
 			"command": "npx",
 			"args": ["-y", "--package=task-master-ai", "task-master-ai"],
 			"env": {
-				
+				"TASKMASTER_USE_CLAUDE_CODE": "true",
+				"TASKMASTER_LOG_LEVEL": "debug"
 			}
 		}
 	}
 }
+    
